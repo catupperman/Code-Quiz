@@ -1,0 +1,8 @@
+.hero {
+    height: 20px;
+    width: 100%;
+    flex-wrap: wrap;
+    background-image: ("../images/hero.jpeg");
+    background-size: cover;
+    background-position: center;
+}
