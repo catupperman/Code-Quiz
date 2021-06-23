@@ -1,8 +1,15 @@
 //GOAL: I am taking a quiz that will regenerate after each question in answered, and will reduce the timer by one second each time the user incorrectly answers a question.
 
 
-//TODO: create a click to start button that will start the timer, and take the user to the next screen.
 
+//TODO: create a click to start button that will start the timer, and take the user to the next screen.
+var generateBtn = document.querySelector("#generate");
+
+var questionOne = [];
+var questionTwo = [];
+var questionThree = [];
+var questionFour = [];
+var questionFive = [];
 
 //TODO: Figure out how to refresh the page to a new page each time the user clicks a response.
 

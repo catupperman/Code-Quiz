@@ -3,29 +3,33 @@
 
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="./assets/style.css">
+    <link rel="stylesheet" href="assets/css/style.css">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Coding Quiz</title>
 </head>
 
 <body>
-    <div class="hero"></div>
+    <script src="assets/java/script.js"></script>
+    <div class="hero">
+        <img src="assets/images/Hero.jpeg">
+    </div>
+    <div class="highscore">
+        <button id="score" class="score-btn">View High Score</button>
+    </div>
     <div class="top">
         <header>
             <h1>Coding Quiz</h1>
         </header>
         <div class="quiz-area">
-            <div class="quiz-area-header">
-                <p>Welcome to your coding Quiz, once you click start, a timer will begin in the upper right hand corner.
-                    For each incorrect response one second will be removed from the timer. Once completed, enter your
-                    initials to see your score. May the best coder win! Good LUCK!
-                </p>
+            <div class="rules">
+                <p></p>Welcome to your coding Quiz, once you click start, a timer will begin in the upper right hand
+                corner.
+                For each incorrect response one second will be removed from the timer. Once completed, enter your
+                initials to see your score. May the best coder win! Good LUCK!</p>
             </div>
             <div class="startbutton">
-                <button id ="generate"
-                class="btn">Start</button>
-
+                <button id="generate" class="start-btn">Start</button>
             </div>
 
         </div>
