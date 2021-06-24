@@ -13,7 +13,7 @@
     cursor: pointer;
 }
 
-.top h1{
+.top h1, .top{
     flex-wrap: wrap;
     text-align: center;
     padding: 10px;
