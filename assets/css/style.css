@@ -20,6 +20,7 @@
 }
 
 .rules{
+    display: flex;
     flex-wrap: wrap;
     font-size: 20px;
     font-weight: 500;
@@ -29,6 +30,7 @@
 
 .start-btn{
     flex-wrap: wrap;
+    margin-top: 70px;
     position: absolute;
     top: 50%;
     left: 50%;
