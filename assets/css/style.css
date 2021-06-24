@@ -13,19 +13,21 @@
     cursor: pointer;
 }
 
-.top h1, .top{
+.top h1{
     flex-wrap: wrap;
     text-align: center;
     padding: 10px;
 }
 
-.rules{
+.top, .rules{
     display: flex;
     flex-wrap: wrap;
     font-size: 20px;
     font-weight: 500;
     padding: 20px;
     border-radius: 5px;
+    text-align: center;
+    align-items: center;
 }
 
 .start-btn{
@@ -37,4 +39,18 @@
     font-size: 25px;
     font-weight: 500;
     cursor: pointer;
+}
+
+.quizbox{
+    width: 550px;
+    border-radius: 5px;
+}
+
+.timer{
+    height: 70px;
+    padding: 0 30px;
+}
+
+.totalQuestions{
+    
 }
