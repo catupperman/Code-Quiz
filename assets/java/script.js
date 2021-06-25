@@ -9,7 +9,6 @@ var questionOne = [];
 var questionTwo = [];
 var questionThree = [];
 var questionFour = [];
-var questionFive = [];
 
 //TODO: Figure out how to refresh the page to a new page each time the user clicks a response.
 

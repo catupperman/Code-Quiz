@@ -14,13 +14,16 @@
 }
 
 .top h1{
+    /*remove later*/
+    display: none;
     flex-wrap: wrap;
     text-align: center;
     padding: 10px;
 }
 
-.top, .rules{
-    display: flex;
+.rules{
+    display: none;
+   /* display: flex;*/
     flex-wrap: wrap;
     font-size: 20px;
     font-weight: 500;
@@ -41,12 +44,35 @@
     cursor: pointer;
 }
 
+.timer{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    height: 45px;
+    width: 100px;
+    padding: 0 30px;
+    justify-content: space-between;
+    font-weight: 500;
+    font-size: 20px;
+}
 .quizbox{
-    width: 550px;
-    border-radius: 5px;
+    position:absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin-top: 10px;
 }
 
-.timer{
-    height: 70px;
-    padding: 0 30px;
+.Question1{
+    width: 550px;
+    border-radius: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
 }
+.Question1 span{
+    font-weight: 400;
+    font-size: 20px;
+}
+
