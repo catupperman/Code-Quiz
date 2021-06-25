@@ -21,9 +21,13 @@
     padding: 10px;
 }
 
+.hide {
+    display:none;
+}
+
 .rules{
-    display: none;
-   /* display: flex;*/
+    /*display: none;*/
+   display: flex;
     flex-wrap: wrap;
     font-size: 20px;
     font-weight: 500;
