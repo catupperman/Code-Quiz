@@ -4,29 +4,35 @@ var timer = document.querySelector(".timer");
 var secondsLeft = 90;
 var score = 0;
 
-//console.log(timer);
-
-//TODO: create a click to start button that will start the timer, and take the user to the next screen.
-//TODO: When a timer starts, presented with a question
-var generateBtn = document.querySelector("#generate");
-generateBtn.addEventListener("click", function () {
-    var quizBox = document.querySelector(".quizbox");
-    quizBox.removeAttribute("class", "hide");
-    var rulesEl = document.querySelector(".rules");
-    rulesEl.setAttribute("class", "hide");
-    questionCard();
-})
 function setTime() {
     var timerInterval = setInterval(function () {
         secondsLeft--;
-        timer.textContent = secondsLeft + "time left";
+        timer.textContent = secondsLeft + " time left";
 
-        if (secondsLeft === 0) {
-            //TODO: goes to the next page second HTML
+        if (secondsLeft === 0) { 
+            clearInterval(timerInterval);
         }
-    }
+    },1000
     )
 }
+
+
+
+//TODO: create a click to start button that will start the timer, and take the user to the next screen.
+//TODO: When a timer starts, presented with a question
+var quizBox = document.querySelector(".quizbox");
+var generateBtn = document.querySelector("#generate");
+generateBtn.addEventListener("click", function () {
+    quizBox.removeAttribute("class", "hide");
+    var rulesEl = document.querySelector(".rules");
+    rulesEl.setAttribute("class", "hide");
+    
+    questionCard();
+    
+    
+}
+, setTime())
+
 
 //TODO: Figure out how to refresh the page to a new page each time the user clicks a response.
 var questions = [
@@ -58,32 +64,49 @@ var questions = [
 ];
 
 //TODO: Figure out the mathmatics of when user clicks this then this etc. 
+//TODO: answer a question presented with another question
 function questionCard() {
+    //render the question
     var currentquestion = questions[0].question
-    var currentChoices = questions[0].choices
     var questionEl = document.querySelector(".question1");
-    var choicesEl = document.querySelector(".option-list");
     questionEl.innerHTML = "<h2 id='question-number'>" + currentquestion + " </h2>";
-    choicesEl.innerHTML = "<li id 'choices-number'>" + currentChoices + "</li>";
-    
+
+    //render the choices
+
     questions[0].choices.forEach(function (choice) {
         var button = document.createElement("button");
+        button.textContent = choice;
+        button.setAttribute("value", choice);
+        button.onclick = function changeContent() {
+            if (choice === questions[0].anwser) {
+                questionEl.removeAttribute("class", "hide");
+                buttton.removeAttribute("button", "hide");
+            } else {
+                timer--;
+                questionEl.removeAttribute("class", "hide");
+                buttton.removeAttribute("button", "hide");
+            }
+        }
+        quizBox.appendChild(button);
     });
+
 };
 
+
+
 var questionNumber = document.querySelector("#question-number");
-
-
-
-
-
-
-
-
-//TODO: answer a question presented with another question
-
 
 //TODO: answer a question incorrectly time is subtracted from the clock
 
 
+
 //TO DO: all questions are answered or the timer reaches 0, the game is over, then the user enters initials to save score and can see the tally.
+
+
+
+
+
+
+
+
+

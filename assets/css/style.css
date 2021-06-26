@@ -67,6 +67,14 @@
     margin-top: 10px;
 }
 
+button{
+    cursor: pointer;
+    font-size: 25px;
+    font-weight: 500;
+    align-items: center;
+    
+}
+
 .Question1{
     width: 550px;
     border-radius: 5px;
