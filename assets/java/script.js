@@ -9,10 +9,10 @@ function setTime() {
         secondsLeft--;
         timer.textContent = secondsLeft + " time left";
 
-        if (secondsLeft === 0) { 
+        if (secondsLeft === 0) {
             clearInterval(timerInterval);
         }
-    },1000
+    }, 1000
     )
 }
 
@@ -23,15 +23,16 @@ function setTime() {
 var quizBox = document.querySelector(".quizbox");
 var generateBtn = document.querySelector("#generate");
 generateBtn.addEventListener("click", function () {
-    quizBox.removeAttribute("class", "hide");
+    setTime(),
+        quizBox.removeAttribute("class", "hide");
     var rulesEl = document.querySelector(".rules");
     rulesEl.setAttribute("class", "hide");
-    
+
     questionCard();
-    
-    
+
+
 }
-, setTime())
+)
 
 
 //TODO: Figure out how to refresh the page to a new page each time the user clicks a response.
@@ -79,13 +80,11 @@ function questionCard() {
         button.setAttribute("value", choice);
         button.onclick = function changeContent() {
             if (choice === questions[0].anwser) {
-                questionEl.removeAttribute("class", "hide");
-                buttton.removeAttribute("button", "hide");
             } else {
                 timer--;
-                questionEl.removeAttribute("class", "hide");
-                buttton.removeAttribute("button", "hide");
             }
+            questionEl.removeAttribute("class", "hide");
+            buttton.removeAttribute("button", "hide");
         }
         quizBox.appendChild(button);
     });
