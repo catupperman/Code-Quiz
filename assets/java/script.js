@@ -1,22 +1,25 @@
 //GOAL: I am taking a quiz that will regenerate after each question in answered, and will reduce the timer by one second each time the user incorrectly answers a question.
 
 var timer = document.querySelector(".timer");
-var secondsLeft = 90;
+var secondsLeft = 25;
 var score = 0;
 var questionIndex = 0;
+var questionEl = document.querySelector(".question1");
+var timerInterval;
 
+function clockTick(){
+    
+    timer.textContent = secondsLeft + " time left";
+    secondsLeft--;
+    if (secondsLeft<0){
+        secondsLeft=0;
+    }
+    
+}
 
 
 function setTime() {
-    var timerInterval = setInterval(function () {
-        secondsLeft--;
-        timer.textContent = secondsLeft + " time left";
-        if (secondsLeft === 0) {
-            //enter in initials: #msg in HTML
-            clearInterval(timerInterval);
-        }
-    }, 1000
-    )
+    timerInterval = setInterval(clockTick, 1000);
 }
 
 var initials = document.querySelector(".initials");
@@ -69,8 +72,10 @@ var questions = [
 function questionCard() {
     //render the question
     var currentquestion = questions[questionIndex].question
-    var questionEl = document.querySelector(".question1");
     questionEl.innerHTML = "<h2 id='question-number'>" + currentquestion + " </h2>";
+    var answerBox = document.querySelector(".option-list");
+    answerBox.innerHTML = "";
+    //console.log(answerBox)
 
     //render the choices
 
@@ -78,32 +83,59 @@ function questionCard() {
         var button = document.createElement("button");
         button.textContent = choice;
         button.setAttribute("value", choice);
-        button.onclick = function changeContent() {
-            if (this.value === questions[questionIndex].anwser) {
-                questionEl.removeAttribute("h2", "hide");
-                score++;
-            } else {
-                //TODO: answer a question incorrectly time is subtracted from the clock
-                timer--;
-            }
-            questionIndex++;
-        }
-        quizBox.appendChild(button);
+        button.onclick = changeContent;
+        answerBox.appendChild(button);
     });
 };
-
+function changeContent() {
+    if (this.value === questions[questionIndex].anwser) {
+        score++;
+        console.log(score);
+    } else {
+        //TODO: answer a question incorrectly time is subtracted from the clock
+        secondsLeft -= 1;
+        if (secondsLeft<=0){
+            endGame ();
+        }
+    }
+    //questionEl.setAttribute("h2", "hide");
+    //button.setAttribute("button", "hide");
+    questionIndex++;
+    if (questionIndex===questions.length){
+        endGame ();
+    } else{
+        questionCard();
+    }
+}
 var questionNumber = document.querySelector("#question-number");
 
+function endGame (){
+    clearInterval(timerInterval);
+    quizBox.innerHTML="";
+    var initials= "hbo";
+    var finalScore = score * secondsLeft;
+    console.log(finalScore);
+    var scoreObject = {initials, finalScore};   
+Highscores.push(scoreObject);
 
+localStorage.setItem("highscores", JSON.stringify(Highscores))
+}
 
+console.log(localStorage);
+var Highscores = JSON.parse(localStorage.getItem("highscores",)) || [];
+console.log (Highscores);
 
+Highscores.sort(function(a,b){
+
+    return b.finalScore-a.finalScore;
+})
 //TO DO: all questions are answered or the timer reaches 0, the game is over, then the user enters initials to save score and can see the tally.
 //initials box, saved to local storage on Highscores.html
 //
 //var finalScore = score, + initials;
 //function renderMessage (){
     //finalScore
-    //localStorage .setItem("initials", JSON.stringify(initials))
+    //localStorage.setItem("initials", JSON.stringify(initials))
     //renderMessage();
 //}
 
