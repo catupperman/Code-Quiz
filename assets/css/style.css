@@ -14,8 +14,7 @@
 }
 
 .top h1{
-    /*remove later*/
-    display: none;
+    display: flex;
     flex-wrap: wrap;
     text-align: center;
     padding: 10px;
@@ -72,6 +71,7 @@ button{
     font-size: 25px;
     font-weight: 500;
     align-items: center;
+    margin: 10px;
     
 }
 
