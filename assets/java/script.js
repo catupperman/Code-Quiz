@@ -1,7 +1,7 @@
 //GOAL: I am taking a quiz that will regenerate after each question in answered, and will reduce the timer by one second each time the user incorrectly answers a question.
 
 var timer = document.querySelector(".timer");
-var secondsLeft = 25;
+var secondsLeft = 90;
 var score = 0;
 var questionIndex = 0;
 var questionEl = document.querySelector(".question1");
@@ -109,6 +109,7 @@ function changeContent() {
 }
 var questionNumber = document.querySelector("#question-number");
 
+//TO DO: all questions are answered or the timer reaches 0, the game is over 
 function endGame (){
     clearInterval(timerInterval);
     quizBox.innerHTML="";
@@ -129,15 +130,8 @@ Highscores.sort(function(a,b){
 
     return b.finalScore-a.finalScore;
 })
-//TO DO: all questions are answered or the timer reaches 0, the game is over, then the user enters initials to save score and can see the tally.
+// TODO: the user enters initials to save score and can see the tally.
 //initials box, saved to local storage on Highscores.html
-//
-//var finalScore = score, + initials;
-//function renderMessage (){
-    //finalScore
-    //localStorage.setItem("initials", JSON.stringify(initials))
-    //renderMessage();
-//}
 
 
 
