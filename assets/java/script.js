@@ -90,7 +90,7 @@ function questionCard() {
 function changeContent() {
     if (this.value === questions[questionIndex].anwser) {
         score++;
-        console.log(score);
+        //console.log(score);
     } else {
         //TODO: answer a question incorrectly time is subtracted from the clock
         secondsLeft -= 1;
@@ -112,22 +112,18 @@ var questionNumber = document.querySelector("#question-number");
 //TO DO: all questions are answered or the timer reaches 0, the game is over 
 function endGame (){
     clearInterval(timerInterval);
-    quizBox.innerHTML="";
-    var initials= "hbo";
+    var initials= document.createElement("textarea");
     var finalScore = score * secondsLeft;
-    console.log(finalScore);
     var scoreObject = {initials, finalScore};   
+    quizBox.innerHTML="Final Score " + finalScore;
 Highscores.push(scoreObject);
 
 localStorage.setItem("highscores", JSON.stringify(Highscores))
 }
-
-console.log(localStorage);
+//console.log(localStorage);
 var Highscores = JSON.parse(localStorage.getItem("highscores",)) || [];
-console.log (Highscores);
-
+//console.log (Highscores);
 Highscores.sort(function(a,b){
-
     return b.finalScore-a.finalScore;
 })
 // TODO: the user enters initials to save score and can see the tally.
