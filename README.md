@@ -9,4 +9,4 @@ This was a very challenging projct to take on, I almost wish I had a few more da
 *License: MIT
 *Contact: catupperman@gmail.com
 
-![Code-Quiz](assets/sampleofwebpage.webm)
+![Code-Quiz](assets/code-quiz.gif)
